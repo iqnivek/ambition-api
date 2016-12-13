@@ -3,7 +3,9 @@ class GoalCompletionsController < ApplicationController
 
   # GET /goal_completions
   def index
-    @goal_completions = GoalCompletion.all
+    raise "Requires date param" if params[:date].blank?
+    date = Date.parse(params[:date])
+    @goal_completions = GoalCompletion.where(time: date.beginning_of_day..date.end_of_day)
 
     render json: @goal_completions
   end

@@ -21,4 +21,4 @@ g3 = u.goals.create(
   name: 'eat less'
 )
 
-g2.goal_completions.create(time: DateTime.now)
+g2.goal_completions.create(time: DateTime.now, complete: true)

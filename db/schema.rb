@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213071323) do
+ActiveRecord::Schema.define(version: 20161213221653) do
 
   create_table "goal_completions", force: :cascade do |t|
     t.integer  "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "time"
+    t.boolean  "complete"
     t.index ["goal_id"], name: "index_goal_completions_on_goal_id"
   end
 

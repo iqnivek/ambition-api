@@ -11,12 +11,14 @@ u = User.create(
   email: 'iqnivek@gmail.com'
 )
 
-u.goals.create(
+g1 = u.goals.create(
   name: "don't sleep late"
 )
-u.goals.create(
+g2 = u.goals.create(
   name: 'run or go to the gym'
 )
-u.goals.create(
+g3 = u.goals.create(
   name: 'eat less'
 )
+
+g2.goal_completions.create(time: DateTime.now)

@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
 
   # GET /goals
   def index
-    @goals = User.first.goals
+    @goals = User.first.goals  # TODO user
 
     render json: @goals
   end
@@ -15,7 +15,7 @@ class GoalsController < ApplicationController
 
   # POST /goals
   def create
-    @goal = Goal.new(goal_params)
+    @goal = User.first.goals.build(goal_params)
 
     if @goal.save
       render json: @goal, status: :created, location: @goal
@@ -46,6 +46,6 @@ class GoalsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def goal_params
-      params.fetch(:goal, {})
+      params.require(:goal).permit(:name)
     end
 end

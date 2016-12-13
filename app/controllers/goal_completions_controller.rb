@@ -15,6 +15,7 @@ class GoalCompletionsController < ApplicationController
 
   # POST /goal_completions
   def create
+    # TODO only allow user's goals to be edited
     @goal_completion = GoalCompletion.new(goal_completion_params)
 
     if @goal_completion.save
@@ -26,6 +27,7 @@ class GoalCompletionsController < ApplicationController
 
   # PATCH/PUT /goal_completions/1
   def update
+    # TODO only allow user's goals to be edited
     if @goal_completion.update(goal_completion_params)
       render json: @goal_completion
     else
@@ -46,6 +48,6 @@ class GoalCompletionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def goal_completion_params
-      params.require(:goal_completion).permit(:goal_id)
+      params.require(:goal_completion).permit(:goal_id, :time)
     end
 end

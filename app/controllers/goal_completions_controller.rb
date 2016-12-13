@@ -50,6 +50,10 @@ class GoalCompletionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def goal_completion_params
-      params.require(:goal_completion).permit(:goal_id, :time)
+      params.require(:goal_completion).permit(
+        :complete,
+        :goal_id,
+        :time,
+      )
     end
 end

@@ -3,7 +3,7 @@ class GoalCompletionHistoriesController < ApplicationController
 
   # GET /goal_completion_histories
   def index
-    @goal_completion_histories = GoalCompletionHistory.all
+    @goal_completion_histories = User.first.goal_completion_histories  # TODO
 
     render json: @goal_completion_histories
   end

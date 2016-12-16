@@ -22,3 +22,6 @@ g3 = u.goals.create(
 )
 
 g2.goal_completions.create(time: DateTime.now, complete: true)
+
+u.goal_completion_histories.create(date: Date.today - 1, target_score: 5, completed_score: 4)
+u.goal_completion_histories.create(date: Date.today - 3, target_score: 3, completed_score: 3)
